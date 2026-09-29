@@ -19,7 +19,7 @@ export default async function Projects() {
       },
       "videoUrl": video.asset->url
     }
-  `);
+  `, {}, { cache: "no-store" });
 
     return <ProjectsClient projects={projects} />;
 }
