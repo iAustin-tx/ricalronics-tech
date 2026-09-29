@@ -100,7 +100,10 @@ ${formData.message}
                   <p className="text-xs uppercase tracking-wider text-slate-400">
                     Call Us
                   </p>
-                  <p className="mt-1 font-semibold">+234 905 963 0783</p>
+                  <div className="mt-1 space-y-1 font-semibold">
+                    <p>+234 905 963 0783</p>
+                    <p>+234 703 238 7791</p>
+                  </div>
                 </div>
               </a>
 
@@ -139,6 +142,24 @@ ${formData.message}
                   <p className="mt-1 font-semibold">
                     Chat with Ricalronics
                   </p>
+                </div>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@ricalronics1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-5 transition hover:border-cyan-400/40"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-cyan-400/10 text-xl">
+                  ♪
+                </div>
+
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-slate-400">
+                    TikTok
+                  </p>
+                  <p className="mt-1 font-semibold">@ricalronics1</p>
                 </div>
               </a>
             </div>

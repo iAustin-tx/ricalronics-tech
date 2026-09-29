@@ -28,24 +28,16 @@ export default function Navbar() {
 
       {/* Main navbar */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <nav className="mx-auto flex h-36 max-w-7xl items-center justify-between px-6">
+        <nav className="mx-auto flex h-44 max-w-7xl items-center justify-between px-6">
           {/* Brand */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/ricalronics-logo.jpeg"
+              src="/images/ricalronics-main-logo-transparent.png"
               alt="Ricalronics Tech Ltd."
               width={400}
               height={250}
               priority
-              className="h-[120px] w-[300px] object-cover mix-blend-multiply"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent, black 8%, black 92%, transparent), linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
-                maskComposite: "intersect",
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent, black 8%, black 92%, transparent), linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
-                WebkitMaskComposite: "source-in",
-              }}
+              className="h-[170px] w-[440px] max-w-full object-contain"
             />
           </Link>
 

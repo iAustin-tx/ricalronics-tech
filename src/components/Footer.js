@@ -23,20 +23,22 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#041426] text-slate-300">
+    <footer className="relative isolate overflow-hidden bg-[#041426] text-slate-300">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <Image
+          src="/images/ricalronics-footer-logo.jpeg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#041426]/90" />
+      </div>
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Company */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block rounded-xl bg-white p-2">
-              <Image
-                src="/images/ricalronics-logo.jpeg"
-                alt="Ricalronics Tech Ltd."
-                width={220}
-                height={135}
-                className="h-auto w-[190px] object-contain"
-              />
-            </Link>
+            <Link href="/" className="text-2xl font-bold text-white">RICALRONICS TECH LTD.</Link>
             <p className="mt-6 max-w-lg text-sm leading-7 text-slate-400">
               Integrated engineering and technology solutions for hotels,
               homes, businesses and modern facilities — connecting
@@ -81,7 +83,7 @@ export default function Footer() {
         </div>
 
         {/* Contact strip */}
-        <div className="mt-14 grid gap-5 border-y border-white/10 py-7 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 border-y border-white/10 py-7 sm:grid-cols-2 lg:grid-cols-4">
           <a
             href="tel:+2349059630783"
             className="text-sm transition hover:text-cyan-400"
@@ -91,6 +93,9 @@ export default function Footer() {
             </span>
             <span className="mt-1 block font-semibold">
               +234 905 963 0783
+            </span>
+            <span className="mt-1 block font-semibold">
+              +234 703 238 7791
             </span>
           </a>
           <a
@@ -115,6 +120,19 @@ export default function Footer() {
             </span>
             <span className="mt-1 block font-semibold">
               Start a conversation →
+            </span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@ricalronics1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm transition hover:text-cyan-400"
+          >
+            <span className="block text-xs uppercase tracking-wider text-slate-500">
+              TikTok
+            </span>
+            <span className="mt-1 block font-semibold">
+              @ricalronics1 →
             </span>
           </a>
         </div>
