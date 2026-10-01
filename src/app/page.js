@@ -8,11 +8,32 @@ import Software from "@/components/Software";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SeasonalGreeting from "@/components/SeasonalGreeting";
+import { client } from "@/sanity/client";
 
-export default function Home() {
+export default async function Home() {
+  const greeting = await client.fetch(
+    `
+      *[
+        _type == "seasonalGreeting" &&
+        active == true
+      ] | order(_createdAt desc)[0] {
+        _id,
+        title,
+        message,
+        startDate,
+        endDate,
+        active
+      }
+    `,
+    {},
+    { cache: "no-store" }
+  );
+
   return (
     <>
       <main>
+        <SeasonalGreeting greeting={greeting} />
         <Navbar />
         <Hero />
         <About />
@@ -22,6 +43,7 @@ export default function Home() {
         <Software />
         <Contact />
       </main>
+
       <Footer />
       <WhatsAppButton />
     </>
