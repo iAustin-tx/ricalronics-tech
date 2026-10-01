@@ -1,11 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navbarVisible, setNavbarVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 50) {
+        setNavbarVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setNavbarVisible(false);
+        setMenuOpen(false);
+      } else {
+        // Scrolling up
+        setNavbarVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -28,7 +55,10 @@ export default function Navbar() {
 
       {/* Main navbar */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <nav className="mx-auto flex h-[200px] max-w-7xl items-center justify-between px-6">
+        <nav
+          className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-300 ease-in-out ${navbarVisible ? "h-[200px]" : "h-[80px]"
+            }`}
+        >
           {/* Brand */}
           <Link href="/" className="flex items-center">
             <Image
@@ -37,7 +67,10 @@ export default function Navbar() {
               width={400}
               height={250}
               priority
-              className="h-[190px] w-[480px] max-w-full object-contain"
+              className={`max-w-full object-contain transition-all duration-300 ease-in-out ${navbarVisible
+                  ? "h-[190px] w-[480px]"
+                  : "h-[70px] w-[180px]"
+                }`}
             />
           </Link>
 
